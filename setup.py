@@ -34,7 +34,7 @@ setup(
     packages=["pyrpc"],
     include_package_data=True,
     install_requires=[
-    	"pypresence"
+    	"pypresence>=4.2.0"
     ],
     entry_points={
         "console_scripts": [
