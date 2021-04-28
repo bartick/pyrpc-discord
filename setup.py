@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="pyrpc-discord",
-    version="1.1.0",
+    version="1.1.2",
     python_requires='>=3.5',
     description="A Small Project To Automate Discord Rich Presence using CLI",
     long_description=README,

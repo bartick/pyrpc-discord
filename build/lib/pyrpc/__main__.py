@@ -3,6 +3,10 @@ from .classmodule import MyClass
 from .funcmodule import set_up, existing_data
 
 def main():
+    if not (sys.version_info.major == 3 and sys.version_info.minor >= 5):
+        print("This script requires Python 3.5 or higher!")
+        print("You are using Python {}.{}.".format(sys.version_info.major, sys.version_info.minor))
+        sys.exit(1)
     args = sys.argv
     args.append('')
     if(args[1].lower()=='start'):
