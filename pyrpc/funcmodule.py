@@ -3,7 +3,7 @@ import sqlite3
 
 def set_up(cID):
 	activity = {"startTimestamp":time.time()}
-	activityKey = ["details", "state", "largeImageKey", "largeImageText", "smallImageKey", "smallImageText"]
+	activityKey = ["state", "details", "largeImageKey", "largeImageText", "smallImageKey", "smallImageText"]
 
 	for i in activityKey:
 		answer = input(f"Enter {i} = ")
@@ -72,7 +72,7 @@ def save_data(activity, cID):
 	if select==None:
 		sql = '''INSERT INTO discord(id,clientid,details,state,largeImageKey,largeImageText,smallImageKey,smallImageText,btlbl1,bturl1,btlbl2,bturl2) VALUES(1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'''
 	else:
-		sql = '''UPDATE discord SET clientid=?, details=?, state=?, largeImageKey=?, largeImageText=?, smallImageKey=?, smallImageText=?, btlbl1=?, bturl1=?, btlbl2=?, bturl2=?'''
+		sql = '''UPDATE discord SET clientid=?, details=?, state=?, largeImageKey=?, largeImageText=?, smallImageKey=?, smallImageText=?, btlbl1=?, bturl1=?, btlbl2=?, bturl2=? WHERE id=1'''
 	c.execute(sql,task)
 	con.commit()
 	con.close()
@@ -102,7 +102,7 @@ def existing_data():
 	select = storage()
 	activity = {"startTimestamp":time.time()}
 	activityKey = ["clientId","details", "state", "largeImageKey", "largeImageText", "smallImageKey", "smallImageText"]
-	for i in range(6):
+	for i in range(7):
 		activity[activityKey[i]] = select[i+1] if not select[i+1]=="" else None
 	if select[7]=="":
 		activity['buttons']=None
@@ -114,3 +114,13 @@ def existing_data():
 			newButton = {"label":select[10],"url":select[11]}
 			activity['buttons'].append(newButton)
 	return activity
+
+def update_specific_data(change):
+	data = input(f"Enter {change} = ")
+	sql = f'UPDATE discord SET {change}=? WHERE id=1'
+	con = sqlite3.connect('database.db')
+	c = con.cursor()
+	c.execute(sql,(data,))
+	con.commit()
+	con.close()
+

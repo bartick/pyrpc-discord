@@ -6,10 +6,10 @@
 A fast and simple command line tool to start discord rich presence easily.
 
 ## Key Features
-- [x] Easy and fast
-- [x] Auto start feature. That auto starts rpc with the last used settings
-- [ ] Change specific data of rich presence
-- [x] Editable using only `pyrpc start`
+- Easy and fast
+- Auto start feature. That auto starts rpc with the last used settings
+- Change specific data of rich presence
+- Editable using only `pyrpc start`
 
 ## Installing
 **Python 3.5 or higher is required**

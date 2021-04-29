@@ -16,7 +16,7 @@ class MyClass():
 
     def statusUpdate(self, state):
         try:
-            self.RPC.update(details=state['details'],state=state["state"],start=state["startTimestamp"],large_image=state['largeImageKey'], large_text=state["largeImageText"],small_image=state['smallImageKey'], small_text=state["smallImageKey"], buttons=state["buttons"])
+            self.RPC.update(details=state['details'],state=state["state"],start=state["startTimestamp"],large_image=state['largeImageKey'], large_text=state["largeImageText"],small_image=state['smallImageKey'], small_text=state["smallImageText"], buttons=state["buttons"])
         except Exception as e:
             print(str(e))
 
